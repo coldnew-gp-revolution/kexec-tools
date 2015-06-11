@@ -296,6 +296,6 @@ out:
 	free(command_line);
 	free(modified_cmdline);
 	if (error_msg)
-		die(error_msg);
+		die((const char *) error_msg);
 	return result;
 }

@@ -16,7 +16,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#include <sys/io.h>
+#if !defined(__APPLE__) && !defined(__ANDROID__)
+#  include <sys/io.h>
+#endif
+
 #include <purgatory.h>
 #include "purgatory-x86.h"
 

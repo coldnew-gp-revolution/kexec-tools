@@ -423,7 +423,9 @@ char *find_mnt_by_fsname(char *fsname)
 	FILE *mtab;
 	struct mntent *mnt;
 	char *mntdir;
-
+#if defined(__ANDROID__)
+	return NULL;
+#else
 	mtab = setmntent("/etc/mtab", "r");
 	if (!mtab)
 		return NULL;
@@ -434,6 +436,7 @@ char *find_mnt_by_fsname(char *fsname)
 	mntdir = mnt ? strdup(mnt->mnt_dir) : NULL;
 	endmntent(mtab);
 	return mntdir;
+#endif
 }
 
 static int get_bootparam(void *buf, off_t offset, size_t size)

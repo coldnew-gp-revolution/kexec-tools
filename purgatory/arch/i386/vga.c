@@ -1,4 +1,6 @@
-#include <sys/io.h>
+#if !defined(__APPLE__) && !defined(__ANDROID__)
+#  include <sys/io.h>
+#endif
 #include <purgatory.h>
 #include "purgatory-x86.h"
 
