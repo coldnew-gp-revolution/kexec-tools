@@ -2,7 +2,9 @@
 #define KEXEC_SYSCALL_H
 
 #define __LIBRARY__
-#include <syscall.h>
+#if !defined(__ANDROID__)
+#  include <syscall.h>
+#endif
 #include <sys/syscall.h>
 #include <unistd.h>
 
