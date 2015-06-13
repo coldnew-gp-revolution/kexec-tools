@@ -1,7 +1,7 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE                  := kexec_kdump_static
+LOCAL_MODULE                  := kdump
 LOCAL_MODULE_TAGS             := optional
 LOCAL_C_INCLUDES              := $(LOCAL_PATH)/include
 LOCAL_SRC_FILES               := kdump/kdump.c
@@ -17,7 +17,7 @@ LOCAL_SRC_FILES   := util_lib/compute_ip_checksum.c util_lib/sha256.c
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE                  := kexec_kexec_static
+LOCAL_MODULE                  := kexec
 LOCAL_MODULE_TAGS             := optional
 LOCAL_CFLAGS                  += -Wno-format-security
 LOCAL_C_INCLUDES              := $(LOCAL_PATH)/include \
@@ -35,10 +35,8 @@ LOCAL_SRC_FILES               := kexec/kexec.c \
                                  kexec/kexec-elf-rel.c \
                                  kexec/kexec-elf-boot.c \
                                  kexec/kexec-iomem.c \
-                                 kexec/kexec-xen.c \
                                  kexec/firmware_memmap.c \
                                  kexec/crashdump.c \
-                                 kexec/crashdump-xen.c \
                                  kexec/phys_arch.c \
                                  kexec/kernel_version.c \
                                  kexec/lzma.c \
